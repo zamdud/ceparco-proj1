@@ -1,12 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 // #include <windows.h>
-#include <time.h>
+// #include <time.h>
 
 void CKernel(size_t ARRAY_SIZE, int* x, int* y)
 {
     // const size_t ARRAY_BYTES = ARRAY_SIZE * sizeof(INT32); //For windows
-    const size_t ARRAY_BYTES = ARRAY_SIZE * 4; //MacOS
+    // const size_t ARRAY_BYTES = ARRAY_SIZE * 4; //MacOS
 
     //Declare Dynamic Array
     // int *x, *y;
@@ -17,11 +17,11 @@ void CKernel(size_t ARRAY_SIZE, int* x, int* y)
     
     //Initialize Array
 
-    for(int i = 0; i<=ARRAY_BYTES; i++)
-    {
-        x[i] = i+1;
-        y[i] = 0;
-    }
+    // for(int i = 0; i<=ARRAY_BYTES; i++)
+    // {
+    //     x[i] = i+1;
+    //     y[i] = 0;
+    // }
 
     //Addition
     for(int i=3;i<ARRAY_SIZE-3;i++)
