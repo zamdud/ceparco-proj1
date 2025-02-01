@@ -5,7 +5,7 @@
 
 void CKernel(size_t n, INT32* X, INT32* Y);
 extern void x86Kernel(size_t n, INT32* X, INT32* Y);
-extern void ACXKernel(size_t n, INT32* X, INT32* Y);
+extern void AVXKernel(size_t n, INT32* X, INT32* Y);
 extern void AVX2Kernel(size_t n, INT32* X, INT32* Y);
 
 int main() {
