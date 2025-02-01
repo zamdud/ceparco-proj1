@@ -2,8 +2,7 @@
 #include "stdlib.h"
 #include "windows.h"
 
-
-void CKernel(size_t n, INT32* X, INT32* Y);
+extern void CKernel(size_t n, INT32* X, INT32* Y);
 extern void x86Kernel(size_t n, INT32* X, INT32* Y);
 extern void ACXKernel(size_t n, INT32* X, INT32* Y);
 extern void AVX2Kernel(size_t n, INT32* X, INT32* Y);
@@ -28,7 +27,7 @@ int main() {
 	
 
 	// C Kernel Implementation
-	//CKernel(n, X, Y);
+	CKernel(n, X, Y);
 	
 	// x86 Kernel Implementation
 	//x86Kernel(n, X, Y);
@@ -37,7 +36,7 @@ int main() {
 	//AVXKernel(n, X, Y);
 
 	// AVX2 Kernel Implementation
-	AVX2Kernel(n, X, Y);
+	//AVX2Kernel(n, X, Y);
 
 	// ERROR CHECKING
 

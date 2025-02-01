@@ -1,9 +1,9 @@
 // #include <stdio.h>
 // #include <stdlib.h>
-// #include <windows.h>
+#include <windows.h>
 // #include <time.h>
 
-void CKernel(size_t ARRAY_SIZE, int* x, int* y)
+extern void CKernel(size_t ARRAY_SIZE, INT32* x, INT32* y)
 {
     // const size_t ARRAY_BYTES = ARRAY_SIZE * sizeof(INT32); //For windows
     // const size_t ARRAY_BYTES = ARRAY_SIZE * 4; //MacOS
