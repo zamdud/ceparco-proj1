@@ -1,0 +1,36 @@
+﻿  CKernel.c
+  main.c
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(44,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(44,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(44,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(44,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(62,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(62,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(62,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(62,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(80,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(80,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(80,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(80,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(98,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(98,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(98,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Ashantie Louize\source\repos\ceparco-proj1\CEPARCO_Project1\main.c(98,9):
+      consider using '%zu' in the format string
+  
+main.obj : error LNK2001: unresolved external symbol AVX2Kernel
+C:\Users\Ashantie Louize\source\repos\ceparco-proj1\x64\Release\CEPARCO_Project1.exe : fatal error LNK1120: 1 unresolved externals

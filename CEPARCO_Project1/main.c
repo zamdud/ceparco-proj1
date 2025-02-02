@@ -9,11 +9,11 @@ extern void ACXKernel(size_t n, INT32* X, INT32* Y);
 extern void AVX2Kernel(size_t n, INT32* X, INT32* Y);
 
 int main() {
-	const size_t n = 1<<25;
+	const size_t n = 1<<20;
 	const size_t ARRAY_BYTES = n * sizeof(INT32);
 	int i;
 	// NUMBER OF TIMES RUNNING THE KERNEL
-	const size_t loop = 10;
+	const size_t loop = 30;
 
 	// DECLARE VECTORS
 	INT32* X, * Y;
@@ -31,7 +31,7 @@ int main() {
 	double elapse, time_taken;
 	elapse = 0.0f;
 
-	// Timing portion
+	// Timing portion 
 
 	for (int i = 0; i < loop; i++) {
 		start = clock();
@@ -100,9 +100,13 @@ int main() {
 
 	// ERROR CHECKING
 
-	/*for (i = 3; i < n-3; i++) {
+	for (i = 0; i < 10; i++) {
 		printf("Y[%d] = %d\n", i, Y[i]);
-	}*/
+	}
+
+	for (i = n - 11; i < n; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
 
 	return 0;
 }
