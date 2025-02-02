@@ -25,7 +25,11 @@ int main() {
 		X[i] = i + 1;
 		Y[i] = 0;
 	}
-	
+
+	CKernel(n, X, Y);
+	x86Kernel(n, X, Y);
+	AVX2Kernel(n, X, Y);
+
 	//timer variables
 	clock_t start, end;
 	double elapse, time_taken;
@@ -42,7 +46,15 @@ int main() {
 		elapse = elapse + time_taken;
 	}
 	printf("Function (in C) average time for %lu loops is %f milliseconds for array size %lu \n", loop, elapse / loop, n);
+	printf("---Correctness Check: C---\n");
+	for (i = 0; i < 10; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
 
+	for (i = n - 11; i < n; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
+	
 	// RESET TIME
 	elapse = 0;
 
@@ -61,7 +73,7 @@ int main() {
 	}
 	printf("Function (in x86) average time for %lu loops is %f milliseconds for array size %lu \n", loop, elapse / loop, n);
 	// ERROR CHECKING
-
+	printf("---Correctness Check: x86-64---\n");
 	for (i = 0; i < 10; i++) {
 		printf("Y[%d] = %d\n", i, Y[i]);
 	}
@@ -87,7 +99,14 @@ int main() {
 		elapse = elapse + time_taken;
 	}
 	printf("Function (in AVX) average time for %lu loops is %f milliseconds to execute an array size %lu \n", loop, elapse / loop, n);
-	
+	printf("---Correctness Check: AVX---\n");
+	for (i = 0; i < 10; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
+
+	for (i = n - 11; i < n; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
 	// RESET TIME
 	elapse = 0;
 
@@ -108,7 +127,7 @@ int main() {
 
 
 	// ERROR CHECKING
-
+	printf("---Correctness Check: AVX2---\n");
 	for (i = 0; i < 10; i++) {
 		printf("Y[%d] = %d\n", i, Y[i]);
 	}

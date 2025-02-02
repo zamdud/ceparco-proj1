@@ -1,2 +1,38 @@
-﻿  Performing Custom Build Tools
+﻿  main.c
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(48,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(48,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(48,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(48,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(54,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(74,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(74,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(74,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(74,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(81,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(101,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(101,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(101,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(101,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(107,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(126,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(126,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(126,9): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 3 has type 'const size_t'
+      C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(126,9):
+      consider using '%zu' in the format string
+  
+C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\CEPARCO_Project1\main.c(135,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   CEPARCO_Project1.vcxproj -> C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\x64\Debug\CEPARCO_Project1.exe
