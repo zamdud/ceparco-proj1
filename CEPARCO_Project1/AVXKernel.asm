@@ -2,8 +2,8 @@ section .text
 bits 64
 default rel
 
-global ACXKernel
-ACXKernel:
+global AVXKernel
+AVXKernel:
     ;write your code here
     xor eax, eax
     ret
