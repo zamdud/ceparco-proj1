@@ -54,7 +54,7 @@ int main() {
 	for (int i = 0; i < loop; i++) {
 		start = clock();
 		// x86 Kernel Implementation
-		//x86Kernel(n, X, Y);
+		x86Kernel(n, X, Y);
 		end = clock();
 		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
 		elapse = elapse + time_taken;
