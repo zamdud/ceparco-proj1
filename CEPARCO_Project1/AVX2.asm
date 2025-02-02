@@ -48,24 +48,11 @@ L1: vmovdqu ymm0, [rdx+rsi*4-12]
 SKIP1:
 
     cmp rax, 0
-        vpaddd ymm3, ymm3, ymm7
+    jz SKIP2
     add rcx, 3
     add rax, rcx
+
 L2: vmovdqu ymm0, [rdx+rsi*4-12]
-        vmovd [r8+4], xmm1
-        vmovd [r8+8], xmm2
-        vmovd [r8+12], xmm3
-
-        add rdx, 4*4
-        add r8, 4*4
-        dec rcx
-        jnz L1
-SKIP1:    
-    mov rcx, rax
-    cmp rcx, 0
-    jz SKIP2
-
-L2: vmovdqu ymm0, [rdx]
     vpand ymm0, ymm0, [mask1]
     vphaddd ymm0, ymm0, ymm0
     vphaddd ymm0, ymm0, ymm0
