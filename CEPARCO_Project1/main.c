@@ -5,7 +5,7 @@
 
 extern void CKernel(size_t n, INT32* X, INT32* Y);
 extern void x86Kernel(size_t n, INT32* X, INT32* Y);
-extern void ACXKernel(size_t n, INT32* X, INT32* Y);
+extern void AVXKernel(size_t n, INT32* X, INT32* Y);
 extern void AVX2Kernel(size_t n, INT32* X, INT32* Y);
 
 int main() {
@@ -93,7 +93,7 @@ int main() {
 	for (int i = 0; i < loop; i++) {
 		start = clock();
 		// AVX Kernel Implementation
-		//AVXKernel(n, X, Y
+		//AVXKernel(n, X, Y)
 		end = clock();
 		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
 		elapse = elapse + time_taken;
