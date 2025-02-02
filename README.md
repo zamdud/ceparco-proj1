@@ -30,3 +30,5 @@
 ## Problem 1: Error codes in building solution in Visual Studio
 The x86 Kernel was initially made in SASM and debugged thoroughly there also. At first, the results being returned were accurate and matched the solutions made in the other kernels, but when the program was migrated to the Visual Studio solution, the error message, _Access violation reading location 0xFFFFFFFFFFFFFFFF_, kept on popping up. It took two of us almost an hour to spot the bug. It turns out, we had to remove the line <br/> **mov rbp, rsp; for correct debugging** <br/>. 
 
+## Problem 2: Bug in CKernel Testing
+When the CKernel file was being created, we originally encountered a segmentation fault error when the array size was too big. It turned out that it was simple human error. The wrong parameter was being passed to malloc. The parameter being passed was the array size only without being multiplied to the size of INT32
