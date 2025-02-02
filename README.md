@@ -1,3 +1,7 @@
+##Instructions: 
+1. Clone repository
+2. Open folder and locate the file "project1-parco.sln". Open in Visual Studio
+   
 # Execution times and Correctness Checks
 Note: Vector X was initialized with values from 1 to 2^n. 
 ## C Output n = {20, 26, 28}
