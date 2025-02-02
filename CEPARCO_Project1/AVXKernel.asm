@@ -1,9 +1,5 @@
 section .data
-empty dd 0,0,0,0
-mask1 dd -1,-1,-1,-1
-mask2 dd -1,-1,-1,0
-base dq 2
-boundary dq 7
+mask1 dd -1,-1,-1,-1,-1,-1,-1,0 
 
 section .text
 bits 64
@@ -12,63 +8,70 @@ default rel
 global AVXKernel
 
 AVXKernel:
-    mov r9, 0          
-    mov r10, [base]     
-    mov r11, [boundary] 
-
-    cmp rcx, r11
-    jl finbyboundary 
-
-     start:
-        cmp r9, r10	
-        jle fix
-        jmp startop
-
-    fix:        
-        mov dword[r8], 0 	
-        inc r9
-        add rdx, 4
-        add r8, 4
-        jmp start
-
-    startop:
-        vmovdqu xmm0, [mask1]	              
-        mov r11,-3
-        vmaskmovps xmm1, xmm0, [rdx+r11*4]
-        vmovdqu xmm0, [mask2] 	             
-        mov r11,1
-        vmaskmovps xmm3, xmm0, [rdx+r11*4]
-
-        vphaddd xmm4,xmm1,xmm3          
-        vphaddd xmm1,xmm4,[empty]       
-        vphaddd xmm4,xmm1,[empty]       
-        
-        
-        vbroadcastss xmm4,xmm4
-        vextractps [r8],xmm4,0   
-        
-        mov r12, r9
-        add r12, 3 
-       
-        cmp r12,rcx
-        jge finbyoperation
-        inc r9                         
-        add rdx, 4
-        add r8, 4
-        jmp startop
+    ;rcx = n
+    ;rdx = address of X
+    ;r8 = address of Y
+    sub rcx, 6
+    mov rsi, 3
     
-    finbyboundary:
-        vbroadcastss xmm4,[empty]
-        vextractps [r8],xmm4,0 
-        jmp fin
+    mov rax, rcx ; Flag for handling edge case
+    shr rcx, 1
+    shl rcx, 1
+    
+    sub rax, rcx 
+    
+    cmp rcx, 0
+    jz SKIP1
 
-    finbyoperation:
-        mov dword[r8], 0
-        add r8, 4
-        mov dword[r8], 0
-        add r8, 4
-        mov dword[r8], 0
-        add r8, 4
+L1: vmovdqu xmm0, [rdx+rsi*4-12]
+    vmovdqu xmm1, [rdx+rsi*4+4]
 
-    fin:
-        ret
+    vmovdqu xmm2, [rdx+rsi*4-4] 
+    vmovdqu xmm3, [rdx+rsi*4+12] 
+
+    vpaddd xmm4, xmm0, xmm1
+    vpaddd xmm5, xmm2, xmm3
+
+    vphaddd xmm4, xmm4, xmm4
+    vphaddd xmm5, xmm5, xmm5
+    vphaddd xmm4, xmm4, xmm4
+    vphaddd xmm5, xmm5, xmm5 
+
+    vpsubd xmm0, xmm4, xmm0
+    vpsubd xmm1, xmm4, xmm1    ;ymm0 and ymm1
+
+    vpsubd xmm2, xmm5, xmm2
+    vpsubd xmm3, xmm5, xmm3    ;ymm2 and ymm3
+
+    vshufps xmm0, xmm1, 0b11110000
+    vpshufd xmm0, xmm0, 0b00110011
+    vshufps xmm2, xmm3, 0b11110000
+    vpshufd xmm2, xmm2, 0b00110011
+    vmovq [r8+rsi*4], xmm0
+    vmovq [r8+rsi*4+8], xmm2
+    add rsi, 2
+    cmp rsi, rcx
+    jl L1
+SKIP1:
+
+    cmp rax, 0
+    jz SKIP2
+    add rcx, 3
+    add rax, rcx
+
+L2: vmovdqu xmm0, [rdx+rsi*4-12]
+    vmovdqu xmm1, [rdx+rsi*4+4]
+
+    vpaddd xmm4, xmm0, xmm1
+    vphaddd xmm4, xmm4, xmm4
+    vphaddd xmm4, xmm4, xmm4
+    vpsubd xmm1, xmm4, xmm1
+    vpshufd xmm1, xmm1, 0b00110011
+    vmovd [r8+rsi*4], xmm1
+    inc rsi
+    cmp rsi, rax
+    jl L2
+    
+SKIP2:
+
+    ret

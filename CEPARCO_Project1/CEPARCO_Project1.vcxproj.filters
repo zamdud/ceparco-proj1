@@ -29,5 +29,8 @@
     <CustomBuild Include="x86Kernel.asm">
       <Filter>Source Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="AVXKernel.asm">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

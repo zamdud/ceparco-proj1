@@ -9,11 +9,11 @@ extern void AVXKernel(size_t n, INT32* X, INT32* Y);
 extern void AVX2Kernel(size_t n, INT32* X, INT32* Y);
 
 int main() {
-	const size_t n = 1<<20;
+	const size_t n = 1<<28;
 	const size_t ARRAY_BYTES = n * sizeof(INT32);
 	int i;
 	// NUMBER OF TIMES RUNNING THE KERNEL
-	const size_t loop = 30;
+	const size_t loop = 50;
 
 	// DECLARE VECTORS
 	INT32* X, * Y;
@@ -93,7 +93,7 @@ int main() {
 	for (int i = 0; i < loop; i++) {
 		start = clock();
 		// AVX Kernel Implementation
-		//AVXKernel(n, X, Y)
+		AVXKernel(n, X, Y);
 		end = clock();
 		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
 		elapse = elapse + time_taken;
