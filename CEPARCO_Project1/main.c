@@ -60,6 +60,15 @@ int main() {
 		elapse = elapse + time_taken;
 	}
 	printf("Function (in x86) average time for %lu loops is %f milliseconds for array size %lu \n", loop, elapse / loop, n);
+	// ERROR CHECKING
+
+	for (i = 0; i < 10; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
+
+	for (i = n - 11; i < n; i++) {
+		printf("Y[%d] = %d\n", i, Y[i]);
+	}
 	
 	// RESET TIME
 	elapse = 0;

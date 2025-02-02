@@ -1,3 +1,2 @@
 ﻿  Performing Custom Build Tools
-  The system cannot find the path specified.
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'x86Kernel.asm' exited with code 3.
+  CEPARCO_Project1.vcxproj -> C:\Users\Johan\OneDrive - De La Salle University - Manila\Documents\JOHAN\DLSU - College\Third Year AY 2024-2025\2nd Semester\CEPARCO\ceparco-proj1\x64\Debug\CEPARCO_Project1.exe
