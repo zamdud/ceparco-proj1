@@ -1,4 +1,5 @@
 # Execution times and Correctness Checks
+Note: Vector X was initialized with values from 1 to 2^n. 
 ## C Output n = {20, 26, 28}
 ![474883264_1177837143759602_8065474038885258091_n](https://github.com/user-attachments/assets/fa479166-6c17-4f69-bd7d-6a8610093771)
 ![474743415_626681566520551_2716139167279742164_n](https://github.com/user-attachments/assets/1b535ac5-637b-48ab-ac45-92b1b188c14a)
