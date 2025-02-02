@@ -15,15 +15,24 @@ AVX2Kernel:
     add r8, 3*4
 
 L1:     vmovdqu ymm0, [rdx]
-        vpand ymm0, ymm0, [mask] 
+        vmovdqu ymm1, [rdx+4]
+        vpand ymm0, ymm0, [mask]
+        vpand ymm1, ymm1, [mask]
         vphaddd ymm0, ymm0, ymm0
+        vphaddd ymm1, ymm1, ymm1
         vphaddd ymm0, ymm0, ymm0
-        vextracti128 xmm1, ymm0, 1
-        vpaddd xmm0, xmm0, xmm1
+        vphaddd ymm1, ymm1, ymm1
+        vpermq ymm2, ymm0, 0b00001110
+        vpermq ymm3, ymm1, 0b00001110
+        vpaddd ymm0, ymm0, ymm2
+        vpaddd ymm1, ymm1, ymm3
         vmovd [r8], xmm0
-        add rdx, 4
-        add r8, 4
-        loop L1
+        vmovd [r8+4], xmm1
+
+        add rdx, 2*4
+        add r8, 2*4
+        sub rcx, 2
+        jnz L1
     
     ret
     

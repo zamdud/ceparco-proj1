@@ -1,6 +1,7 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "windows.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
 
 extern void CKernel(size_t n, INT32* X, INT32* Y);
 extern void x86Kernel(size_t n, INT32* X, INT32* Y);
@@ -8,10 +9,12 @@ extern void ACXKernel(size_t n, INT32* X, INT32* Y);
 extern void AVX2Kernel(size_t n, INT32* X, INT32* Y);
 
 int main() {
-	const size_t n = 1<<20;
+	const size_t n = 1<<25;
 	const size_t ARRAY_BYTES = n * sizeof(INT32);
 	int i;
-	
+	// NUMBER OF TIMES RUNNING THE KERNEL
+	const size_t loop = 10;
+
 	// DECLARE VECTORS
 	INT32* X, * Y;
 	X = (INT32*)malloc(ARRAY_BYTES);
@@ -23,26 +26,83 @@ int main() {
 		Y[i] = 0;
 	}
 	
+	//timer variables
+	clock_t start, end;
+	double elapse, time_taken;
+	elapse = 0.0f;
+
 	// Timing portion
+
+	for (int i = 0; i < loop; i++) {
+		start = clock();
+		// C Kernel Implementation
+		CKernel(n, X, Y);
+		end = clock();
+		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
+		elapse = elapse + time_taken;
+	}
+	printf("Function (in C) average time for %lu loops is %f milliseconds for array size %lu \n", loop, elapse / loop, n);
+
+	// RESET TIME
+	elapse = 0;
+
+	// RE-INITIALIZE OUTPUT ARRAY
+	for (i = 0; i < n; i++) {
+		Y[i] = 0;
+	}
+
+	for (int i = 0; i < loop; i++) {
+		start = clock();
+		// x86 Kernel Implementation
+		//x86Kernel(n, X, Y);
+		end = clock();
+		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
+		elapse = elapse + time_taken;
+	}
+	printf("Function (in x86) average time for %lu loops is %f milliseconds for array size %lu \n", loop, elapse / loop, n);
 	
+	// RESET TIME
+	elapse = 0;
 
-	// C Kernel Implementation
-	CKernel(n, X, Y);
+	// RE-INITIALIZE OUTPUT ARRAY
+	for (i = 0; i < n; i++) {
+		Y[i] = 0;
+	}
+
+	for (int i = 0; i < loop; i++) {
+		start = clock();
+		// AVX Kernel Implementation
+		//AVXKernel(n, X, Y
+		end = clock();
+		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
+		elapse = elapse + time_taken;
+	}
+	printf("Function (in AVX) average time for %lu loops is %f milliseconds to execute an array size %lu \n", loop, elapse / loop, n);
 	
-	// x86 Kernel Implementation
-	//x86Kernel(n, X, Y);
+	// RESET TIME
+	elapse = 0;
 
-	// AVX Kernel Implementation
-	//AVXKernel(n, X, Y);
+	// RE-INITIALIZE OUTPUT ARRAY
+	for (i = 0; i < n; i++) {
+		Y[i] = 0;
+	}
 
-	// AVX2 Kernel Implementation
-	//AVX2Kernel(n, X, Y);
+	for (int i = 0; i < loop; i++) {
+		start = clock();
+		// AVX2 Kernel Implementation
+		AVX2Kernel(n, X, Y);
+		end = clock();
+		time_taken = ((double)(end - start)) * 1E3 / CLOCKS_PER_SEC;
+		elapse = elapse + time_taken;
+	}
+	printf("Function (in AVX2) average time for %lu loops is %f milliseconds to execute an array size %lu \n", loop, elapse / loop, n);
+
 
 	// ERROR CHECKING
 
-	for (i = 3; i < n-3; i++) {
+	/*for (i = 3; i < n-3; i++) {
 		printf("Y[%d] = %d\n", i, Y[i]);
-	}
+	}*/
 
 	return 0;
 }
